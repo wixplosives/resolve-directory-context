@@ -1,0 +1,55 @@
+{
+  "name": "@wixc3/resolve-directory-context",
+  "description": "Helpers to get information about single/multi-package contexts",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "prebuild": "npm run clean",
+    "build": "tsc -p tsconfig.build.json",
+    "pretest": "npm run typecheck",
+    "test": "npm run test:spec",
+    "test:spec": "mocha \"./test/**/*.spec.ts\"",
+    "lint": "eslint . -f codeframe",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "find-up": "^5.0.0",
+    "glob": "^7.1.7",
+    "tslib": "^2.3.1",
+    "type-fest": "^2.1.0"
+  },
+  "devDependencies": {
+    "@ts-tools/node": "^3.0.1",
+    "@types/chai": "^4.2.21",
+    "@types/glob": "^7.1.4",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "14",
+    "chai": "^4.3.4",
+    "mocha": "^9.1.0",
+    "rimraf": "^3.0.2",
+    "typescript": "~4.3.5"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "packages",
+    "directory",
+    "workspace",
+    "npm",
+    "yarn"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Wix.com",
+  "license": "MIT",
+  "repository": "git@github.com:wixplosives/pleb.git"
+}

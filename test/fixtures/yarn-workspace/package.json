@@ -1,0 +1,8 @@
+{
+  "name": "yarn-workspace",
+  "workspaces": [
+    "packages/*"
+  ],
+  "license": "MIT",
+  "private": true
+}

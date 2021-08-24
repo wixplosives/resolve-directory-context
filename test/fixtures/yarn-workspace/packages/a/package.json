@@ -1,0 +1,10 @@
+{
+  "name": "yarn-workspace-a",
+  "version": "1.0.0",
+  "scripts": {
+    "prepack": "echo \"prepack yarn-workspace-a\""
+  },
+  "dependencies": {
+    "yarn-workspace-b": "^1.0.0"
+  }
+}
