@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import findUp from 'find-up';
 import type { PackageJson } from 'type-fest';
 import { resolveWorkspacePackages, extractPackageLocations } from './yarn-workspaces';
 import { isPlainObject, isString } from './language-helpers';
 import { INpmPackage, PACKAGE_JSON, resolveLinkedPackages, sortPackagesByDepth } from './npm-package';
+import { findFileUpSync } from './find-up';
 
 export interface SinglePackageContext {
   type: 'single';
@@ -18,7 +18,7 @@ export interface MultiPackageContext {
 }
 
 export function resolveDirectoryContext(basePath: string): SinglePackageContext | MultiPackageContext {
-  const packageJsonPath = findUp.sync(PACKAGE_JSON, { cwd: basePath });
+  const packageJsonPath = findFileUpSync(basePath, PACKAGE_JSON);
 
   if (!isString(packageJsonPath)) {
     throw new Error(`Cannot find ${PACKAGE_JSON} for ${basePath}`);
