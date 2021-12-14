@@ -1,7 +1,7 @@
 {
   "name": "@wixc3/resolve-directory-context",
   "description": "Helpers to get information about single/multi-package contexts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./dist/index.js",
   "scripts": {
     "clean": "rimraf ./dist",
