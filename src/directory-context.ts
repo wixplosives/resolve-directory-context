@@ -90,3 +90,7 @@ export function childPackagesFromContext(context: SinglePackageContext | MultiPa
 export function allPackagesFromContext(context: SinglePackageContext | MultiPackageContext): INpmPackage[] {
   return context.type === 'single' ? [context.npmPackage] : [context.rootPackage, ...context.packages];
 }
+
+export function getRootPackage(context: SinglePackageContext | MultiPackageContext): INpmPackage {
+  return context.type === 'single' ? context.npmPackage : context.rootPackage;
+}
