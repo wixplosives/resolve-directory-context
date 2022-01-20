@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "glob": "^7.2.0",
-    "type-fest": "^2.9.0"
+    "type-fest": "^2.10.0"
   },
   "devDependencies": {
     "@ts-tools/node": "^3.0.1",
