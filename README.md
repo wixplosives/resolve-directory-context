@@ -8,6 +8,7 @@ Helpers to get information about single/multi-package contexts.
 ## Features
 
 Supports:
+
 - single packages
 - `"workspaces"` in `package.json` (yarn or npm@7)
 - `lerna.json` defined workspaces
@@ -15,6 +16,21 @@ Supports:
 ## API
 
 - `resolveDirectoryContext`
+
+```ts
+import fs from 'fs';
+import path from 'path';
+import { resolveDirectoryContext } from '@wixc3/resolve-directory-context';
+
+const context = resolveDirectoryContext(basePath, { ...fs, ...path });
+if (context.type === 'multi') {
+  // context.rootPackage === {...}
+  // context.packages === [{...}, {...}]
+} else {
+  // context.type === 'single'
+  // context.npmPackage === {...}
+}
+```
 
 ### License
 
