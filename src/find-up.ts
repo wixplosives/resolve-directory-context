@@ -1,11 +1,14 @@
-import { statSync } from 'fs';
-import { dirname, join } from 'path';
+export interface FindUpHost {
+  statSync(path: string): { isFile(): boolean };
+  dirname(path: string): string;
+  join(...segments: string[]): string;
+}
 
-export function findFileUpSync(directoryPath: string, fileName: string) {
-  for (const directoryInChain of pathChainToRoot(directoryPath)) {
-    const filePath = join(directoryInChain, fileName);
+export function findFileUpSync(directoryPath: string, fileName: string, host: FindUpHost) {
+  for (const directoryInChain of pathChainToRoot(directoryPath, host.dirname)) {
+    const filePath = host.join(directoryInChain, fileName);
     try {
-      if (statSync(filePath).isFile()) {
+      if (host.statSync(filePath).isFile()) {
         return filePath;
       }
     } catch {}
@@ -13,7 +16,7 @@ export function findFileUpSync(directoryPath: string, fileName: string) {
   return;
 }
 
-function* pathChainToRoot(currentPath: string) {
+function* pathChainToRoot(currentPath: string, dirname: (path: string) => string) {
   let lastPath: string | undefined;
   while (lastPath !== currentPath) {
     yield currentPath;

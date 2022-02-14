@@ -1,5 +1,3 @@
-import path from 'path';
-import fs from 'fs';
 import type { PackageJson } from 'type-fest';
 import { flattenTree, isString, concatIterables, isPlainObject } from './language-helpers';
 
@@ -13,15 +11,20 @@ export interface INpmPackage {
   packageJson: PackageJson;
 }
 
-export function resolveLinkedPackages(rootPackage: INpmPackage): INpmPackage[] {
+export interface ResolveLinkedPackagesHost {
+  readFileSync(filePath: string, encoding: 'utf8'): string;
+  join(...segments: string[]): string;
+}
+
+export function resolveLinkedPackages(rootPackage: INpmPackage, host: ResolveLinkedPackagesHost): INpmPackage[] {
   const { dependencies = {}, devDependencies = {} } = rootPackage.packageJson;
   const linkedPackages: INpmPackage[] = [];
   for (const request of concatIterables(Object.values(dependencies), Object.values(devDependencies))) {
     if (request.startsWith('file:')) {
       const linkTarget = request.slice(5);
-      const directoryPath = path.join(rootPackage.directoryPath, linkTarget);
-      const packageJsonPath = path.join(directoryPath, PACKAGE_JSON);
-      const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+      const directoryPath = host.join(rootPackage.directoryPath, linkTarget);
+      const packageJsonPath = host.join(directoryPath, PACKAGE_JSON);
+      const packageJsonContent = host.readFileSync(packageJsonPath, 'utf8');
       const packageJson = JSON.parse(packageJsonContent) as PackageJson;
 
       if (!isPlainObject(packageJson)) {

@@ -8,26 +8,33 @@
     "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.build.json",
     "pretest": "npm run typecheck",
-    "test": "npm run test:spec",
-    "test:spec": "mocha \"./test/**/*.spec.ts\"",
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "mocha \"./test/**/*.{spec,nodespec}.ts\"",
+    "test:browser": "mocha-play \"./test/**/*.spec.ts\"",
     "lint": "eslint . -f codeframe",
     "prepack": "npm run build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "glob": "^7.2.0",
+    "minimatch": "^4.1.1",
     "type-fest": "^2.11.2"
   },
   "devDependencies": {
+    "@file-services/memory": "^5.7.1",
+    "@file-services/path": "^5.7.1",
     "@ts-tools/node": "^3.0.1",
+    "@ts-tools/webpack-loader": "^3.0.2",
     "@types/chai": "^4.3.0",
-    "@types/glob": "^7.2.0",
+    "@types/minimatch": "^3.0.5",
     "@types/mocha": "^9.1.0",
     "@types/node": "14",
     "chai": "^4.3.6",
     "mocha": "^9.2.0",
+    "mocha-play": "^3.0.2",
+    "playwright-chromium": "^1.19.0",
     "rimraf": "^3.0.2",
-    "typescript": "~4.5.5"
+    "typescript": "~4.5.5",
+    "webpack": "^5.68.0"
   },
   "files": [
     "bin",
