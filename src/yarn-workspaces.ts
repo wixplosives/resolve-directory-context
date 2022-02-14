@@ -1,25 +1,45 @@
-import fs from 'fs';
-import path from 'path';
-import glob from 'glob';
+import minimatch from 'minimatch';
 import type { PackageJson } from 'type-fest';
 import { isString, isPlainObject } from './language-helpers';
 import { INpmPackage, PACKAGE_JSON } from './npm-package';
 
-export function resolveWorkspacePackages(basePath: string, workspaces: string[]): INpmPackage[] {
+export interface ResolveWorkspacePackagesHost {
+  readFileSync(filePath: string, encoding: 'utf8'): string;
+  readdirSync(
+    directoryPath: string,
+    options: { withFileTypes: true }
+  ): Iterable<{ name: string; isFile(): boolean; isDirectory(): boolean }>;
+  dirname(path: string): string;
+  relative(from: string, to: string): string;
+  join(...segments: string[]): string;
+}
+
+export function resolveWorkspacePackages(
+  basePath: string,
+  workspaces: string[],
+  host: ResolveWorkspacePackagesHost
+): INpmPackage[] {
   const packages = new Map<string, INpmPackage>();
-  const globOptions: glob.IOptions = {
-    cwd: basePath,
-    absolute: true,
-    ignore: '**/node_modules/**',
-  };
+
+  const packageJsonFilePaths = Array.from(
+    deepFindFilesSync(
+      basePath,
+      (fileName) => fileName === PACKAGE_JSON,
+      (directoryName) => !directoryName.startsWith('.') && directoryName !== 'node_modules',
+      host
+    )
+  );
+
   for (const packageDirGlob of workspaces) {
-    const packageJsonGlob = path.posix.join(packageDirGlob, PACKAGE_JSON);
-    const packageJsonPaths = glob.sync(packageJsonGlob, globOptions);
-    for (const packageJsonPath of packageJsonPaths.map(path.normalize)) {
+    const packageJsonGlob = ensureEndsWithPackageJson(packageDirGlob);
+    const packageJsonPaths = packageJsonFilePaths.filter((packageJsonPath) =>
+      minimatch(host.relative(basePath, packageJsonPath), packageJsonGlob)
+    );
+    for (const packageJsonPath of packageJsonPaths) {
       if (packages.has(packageJsonPath)) {
         continue;
       }
-      const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf8');
+      const packageJsonContent = host.readFileSync(packageJsonPath, 'utf8');
       const packageJson = JSON.parse(packageJsonContent) as PackageJson;
       if (!isPlainObject(packageJson)) {
         throw new Error(`${packageJsonPath}: no valid json object.`);
@@ -31,7 +51,7 @@ export function resolveWorkspacePackages(basePath: string, workspaces: string[])
         displayName,
         packageJsonPath,
         packageJson,
-        directoryPath: path.dirname(packageJsonPath),
+        directoryPath: host.dirname(packageJsonPath),
         packageJsonContent,
       });
     }
@@ -56,4 +76,30 @@ export function extractPackageLocations(workspaces: PackageJson.YarnConfiguratio
     }
   }
   throw new Error(`cannot extract package locations from "workspaces" field.`);
+}
+
+export function* deepFindFilesSync(
+  directoryPath: string,
+  filterFile: (fileName: string, filePath: string) => boolean = () => true,
+  filterDirectory: (directoryName: string, directoryPath: string) => boolean = () => true,
+  host: ResolveWorkspacePackagesHost
+): Generator<string> {
+  for (const item of host.readdirSync(directoryPath, { withFileTypes: true })) {
+    const itemPath = host.join(directoryPath, item.name);
+    if (item.isFile() && filterFile(item.name, itemPath)) {
+      yield host.join(directoryPath, item.name);
+    } else if (item.isDirectory() && filterDirectory(item.name, itemPath)) {
+      yield* deepFindFilesSync(itemPath, filterFile, filterDirectory, host);
+    }
+  }
+}
+
+function ensureEndsWithPackageJson(workspace: string) {
+  if (workspace.endsWith(`/${PACKAGE_JSON}`)) {
+    return workspace;
+  } else if (workspace.endsWith('/')) {
+    return workspace + PACKAGE_JSON;
+  } else {
+    return `${workspace}/${PACKAGE_JSON}`;
+  }
 }

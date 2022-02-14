@@ -1,8 +1,7 @@
 {
-  "name": "yarn-workspace",
+  "name": "workspace-fixture",
   "workspaces": [
     "packages/*"
   ],
-  "license": "MIT",
   "private": true
 }
