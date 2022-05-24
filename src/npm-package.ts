@@ -20,7 +20,7 @@ export function resolveLinkedPackages(rootPackage: INpmPackage, host: ResolveLin
   const { dependencies = {}, devDependencies = {} } = rootPackage.packageJson;
   const linkedPackages: INpmPackage[] = [];
   for (const request of concatIterables(Object.values(dependencies), Object.values(devDependencies))) {
-    if (request.startsWith('file:')) {
+    if (request?.startsWith('file:')) {
       const linkTarget = request.slice(5);
       const directoryPath = host.join(rootPackage.directoryPath, linkTarget);
       const packageJsonPath = host.join(directoryPath, PACKAGE_JSON);
