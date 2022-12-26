@@ -60,7 +60,7 @@ export function resolveWorkspacePackages(
   return Array.from(packages.values());
 }
 
-export function extractPackageLocations(workspaces: PackageJson.YarnConfiguration['workspaces']): string[] {
+export function extractPackageLocations(workspaces: PackageJson['workspaces']): string[] {
   if (isString(workspaces)) {
     return [workspaces];
   } else if (Array.isArray(workspaces)) {
