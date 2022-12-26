@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import { resolveWorkspacePackages, ResolveWorkspacePackagesHost, extractPackageLocations } from './yarn-workspaces';
+import { resolveWorkspacePackages, ResolveWorkspacePackagesHost, extractPackageLocations } from './workspaces';
 import { isPlainObject, isString } from './language-helpers';
 import {
   INpmPackage,
