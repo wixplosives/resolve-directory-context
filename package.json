@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "minimatch": "^7.3.0",
+    "minimatch": "^7.4.1",
     "type-fest": "^3.6.1"
   },
   "devDependencies": {
