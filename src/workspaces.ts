@@ -1,4 +1,4 @@
-import minimatch from 'minimatch';
+import { minimatch } from 'minimatch';
 import type { PackageJson } from 'type-fest';
 import { isString, isPlainObject } from './language-helpers';
 import { INpmPackage, PACKAGE_JSON } from './npm-package';
