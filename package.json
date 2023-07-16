@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "minimatch": "^9.0.3",
-    "type-fest": "^3.13.0"
+    "type-fest": "^4.0.0"
   },
   "devDependencies": {
     "@file-services/memory": "^7.4.0",
@@ -30,7 +30,7 @@
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "mocha-play": "^5.0.1",
-    "playwright-chromium": "^1.36.0",
+    "playwright-chromium": "^1.36.1",
     "rimraf": "^5.0.1",
     "typescript": "~5.1.6",
     "webpack": "^5.88.1"
@@ -41,7 +41,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "keywords": [
     "packages",
