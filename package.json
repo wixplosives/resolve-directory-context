@@ -27,12 +27,12 @@
     "@types/chai": "^4.3.5",
     "@types/mocha": "^10.0.1",
     "@types/node": "18",
-    "chai": "^4.3.7",
+    "chai": "^4.3.8",
     "mocha": "^10.2.0",
     "mocha-play": "^6.0.0",
     "playwright-chromium": "^1.37.1",
     "rimraf": "^5.0.1",
-    "typescript": "~5.1.6",
+    "typescript": "~5.2.2",
     "webpack": "^5.88.2"
   },
   "files": [
