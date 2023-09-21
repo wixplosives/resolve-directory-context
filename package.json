@@ -20,7 +20,7 @@
     "type-fest": "^4.3.1"
   },
   "devDependencies": {
-    "@file-services/memory": "^8.2.0",
+    "@file-services/memory": "^8.3.0",
     "@file-services/path": "^8.2.0",
     "@ts-tools/node": "^5.0.2",
     "@ts-tools/webpack-loader": "^5.0.2",
