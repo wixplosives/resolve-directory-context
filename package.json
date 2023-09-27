@@ -20,18 +20,18 @@
     "type-fest": "^4.3.2"
   },
   "devDependencies": {
-    "@file-services/memory": "^8.3.0",
-    "@file-services/path": "^8.3.0",
+    "@file-services/memory": "^8.3.1",
+    "@file-services/path": "^8.3.1",
     "@playwright/browser-chromium": "^1.38.1",
     "@ts-tools/node": "^5.0.2",
     "@ts-tools/webpack-loader": "^5.0.2",
     "@types/chai": "^4.3.6",
-    "@types/mocha": "^10.0.1",
+    "@types/mocha": "^10.0.2",
     "@types/node": "18",
-    "chai": "^4.3.8",
+    "chai": "^4.3.9",
     "mocha": "^10.2.0",
     "mocha-play": "^6.0.0",
-    "rimraf": "^5.0.4",
+    "rimraf": "^5.0.5",
     "typescript": "~5.2.2",
     "webpack": "^5.88.2"
   },
