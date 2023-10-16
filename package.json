@@ -33,7 +33,7 @@
     "mocha-play": "^6.0.0",
     "rimraf": "^5.0.5",
     "typescript": "~5.2.2",
-    "webpack": "^5.88.2"
+    "webpack": "^5.89.0"
   },
   "files": [
     "bin",
