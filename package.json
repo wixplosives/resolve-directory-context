@@ -28,7 +28,7 @@
     "@types/chai": "^4.3.11",
     "@types/mocha": "^10.0.6",
     "@types/node": "18",
-    "chai": "^4.4.1",
+    "chai": "^5.1.0",
     "mocha": "^10.3.0",
     "mocha-play": "^7.0.3",
     "rimraf": "^5.0.5",
