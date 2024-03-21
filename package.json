@@ -10,7 +10,7 @@
     "pretest": "npm run typecheck",
     "test": "npm run test:node && npm run test:browser",
     "test:node": "mocha \"./test/**/*.{spec,nodespec}.ts\"",
-    "test:browser": "mocha-play \"./test/**/*.spec.ts\"",
+    "test:browser": "mocha-web \"./test/**/*.spec.ts\"",
     "lint": "eslint . -f codeframe",
     "prepack": "npm run build",
     "typecheck": "tsc --noEmit"
@@ -24,16 +24,15 @@
     "@file-services/path": "^9.1.0",
     "@playwright/browser-chromium": "^1.42.1",
     "@ts-tools/node": "^5.0.2",
-    "@ts-tools/webpack-loader": "^5.0.2",
     "@types/chai": "^4.3.14",
     "@types/mocha": "^10.0.6",
     "@types/node": "18",
     "chai": "^4.4.1",
+    "esbuild": "^0.20.2",
     "mocha": "^10.3.0",
-    "mocha-play": "^7.0.4",
+    "mocha-web": "^1.0.0",
     "rimraf": "^5.0.5",
-    "typescript": "~5.4.3",
-    "webpack": "^5.91.0"
+    "typescript": "~5.4.3"
   },
   "files": [
     "bin",
