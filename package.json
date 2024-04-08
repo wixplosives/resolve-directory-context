@@ -30,7 +30,7 @@
     "chai": "^4.4.1",
     "esbuild": "^0.20.2",
     "mocha": "^10.4.0",
-    "mocha-web": "^1.0.1",
+    "mocha-web": "^1.0.2",
     "rimraf": "^5.0.5",
     "typescript": "~5.4.4"
   },
