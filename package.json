@@ -17,18 +17,18 @@
   },
   "dependencies": {
     "minimatch": "^9.0.4",
-    "type-fest": "^4.18.2"
+    "type-fest": "^4.18.3"
   },
   "devDependencies": {
-    "@file-services/memory": "^9.2.1",
-    "@file-services/path": "^9.2.1",
+    "@file-services/memory": "^9.3.0",
+    "@file-services/path": "^9.3.0",
     "@playwright/browser-chromium": "^1.44.1",
     "@ts-tools/node": "^5.0.2",
     "@types/chai": "^4.3.16",
     "@types/mocha": "^10.0.6",
     "@types/node": "18",
     "chai": "^4.4.1",
-    "esbuild": "^0.21.3",
+    "esbuild": "^0.21.4",
     "mocha": "^10.4.0",
     "mocha-web": "^1.0.2",
     "rimraf": "^5.0.7",
