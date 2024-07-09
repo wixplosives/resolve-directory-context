@@ -4,7 +4,7 @@
   "version": "4.0.0",
   "main": "./dist/index.js",
   "scripts": {
-    "clean": "rimraf ./dist",
+    "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
     "prebuild": "npm run clean",
     "build": "tsc -p tsconfig.build.json",
     "pretest": "npm run typecheck",
@@ -31,7 +31,6 @@
     "esbuild": "^0.23.0",
     "mocha": "^10.6.0",
     "mocha-web": "^1.0.2",
-    "rimraf": "^5.0.8",
     "typescript": "~5.5.3"
   },
   "files": [
