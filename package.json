@@ -20,11 +20,11 @@
     "type-fest": "^4.23.0"
   },
   "devDependencies": {
-    "@file-services/memory": "^9.4.0",
-    "@file-services/path": "^9.4.0",
+    "@file-services/memory": "^9.4.1",
+    "@file-services/path": "^9.4.1",
     "@playwright/browser-chromium": "^1.45.3",
     "@ts-tools/node": "^5.0.2",
-    "@types/chai": "^4.3.16",
+    "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.7",
     "@types/node": "20",
     "chai": "^4.4.1",
