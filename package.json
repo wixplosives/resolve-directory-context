@@ -17,12 +17,12 @@
   },
   "dependencies": {
     "minimatch": "^9.0.5",
-    "type-fest": "^4.23.0"
+    "type-fest": "^4.24.0"
   },
   "devDependencies": {
     "@file-services/memory": "^9.4.1",
     "@file-services/path": "^9.4.1",
-    "@playwright/browser-chromium": "^1.45.3",
+    "@playwright/browser-chromium": "^1.46.0",
     "@ts-tools/node": "^5.0.2",
     "@types/chai": "^4.3.17",
     "@types/mocha": "^10.0.7",
