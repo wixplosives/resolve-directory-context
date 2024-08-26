@@ -24,7 +24,7 @@
     "@file-services/path": "^9.4.1",
     "@playwright/browser-chromium": "^1.46.1",
     "@ts-tools/node": "^6.0.0",
-    "@types/chai": "^4.3.17",
+    "@types/chai": "^4.3.18",
     "@types/mocha": "^10.0.7",
     "@types/node": "20",
     "chai": "^4.4.1",
