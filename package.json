@@ -30,7 +30,7 @@
     "chai": "^4.4.1",
     "esbuild": "^0.23.1",
     "mocha": "^10.7.3",
-    "mocha-web": "^1.0.2",
+    "mocha-web": "^2.0.0",
     "typescript": "~5.5.4"
   },
   "files": [
@@ -39,7 +39,7 @@
     "src"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "keywords": [
     "packages",
