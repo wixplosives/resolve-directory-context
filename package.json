@@ -28,7 +28,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "20",
     "chai": "^4.4.1",
-    "esbuild": "^0.24.1",
+    "esbuild": "^0.24.2",
     "mocha": "^11.0.1",
     "mocha-web": "^2.0.0",
     "typescript": "~5.7.2"
