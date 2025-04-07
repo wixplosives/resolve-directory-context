@@ -31,7 +31,7 @@
     "esbuild": "^0.25.2",
     "mocha": "^11.1.0",
     "mocha-web": "^2.1.0",
-    "typescript": "~5.8.2"
+    "typescript": "~5.8.3"
   },
   "files": [
     "bin",
