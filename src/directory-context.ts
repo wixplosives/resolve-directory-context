@@ -1,14 +1,14 @@
 import type { PackageJson } from 'type-fest';
-import { resolveWorkspacePackages, ResolveWorkspacePackagesHost, extractPackageLocations } from './workspaces';
-import { isPlainObject, isString } from './language-helpers';
+import { findFileUpSync, type FindUpHost } from './find-up.js';
+import { isPlainObject, isString } from './language-helpers.js';
 import {
-  INpmPackage,
   PACKAGE_JSON,
   resolveLinkedPackages,
-  ResolveLinkedPackagesHost,
   sortPackagesByDepth,
-} from './npm-package';
-import { findFileUpSync, FindUpHost } from './find-up';
+  type INpmPackage,
+  type ResolveLinkedPackagesHost,
+} from './npm-package.js';
+import { extractPackageLocations, resolveWorkspacePackages, type ResolveWorkspacePackagesHost } from './workspaces.js';
 
 export interface SinglePackageContext {
   type: 'single';

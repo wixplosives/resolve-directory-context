@@ -1,7 +1,7 @@
 import { minimatch } from 'minimatch';
 import type { PackageJson } from 'type-fest';
-import { isString, isPlainObject } from './language-helpers';
-import { INpmPackage, PACKAGE_JSON } from './npm-package';
+import { isPlainObject, isString } from './language-helpers.js';
+import { type INpmPackage, PACKAGE_JSON } from './npm-package.js';
 
 export interface ResolveWorkspacePackagesHost {
   readFileSync(filePath: string, encoding: 'utf8'): string;

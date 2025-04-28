@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import type { PackageJson } from 'type-fest';
-import { INpmPackage, sortPackagesByDepth } from '../src/npm-package';
+import { type INpmPackage, sortPackagesByDepth } from '../src/npm-package.js';
 
 describe('sortPackagesByDepth', () => {
   const createPackage = (packageName: string, dependencies?: Record<string, string>): INpmPackage => ({

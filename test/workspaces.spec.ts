@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import type { PackageJson } from 'type-fest';
 import { createMemoryFs } from '@file-services/memory';
-import { resolveWorkspacePackages } from '../src/workspaces';
+import { resolveWorkspacePackages } from '../src/workspaces.js';
 
 describe('resolveWorkspacePackages', () => {
   const packageJson = (packageJson: PackageJson) => JSON.stringify(packageJson, null, 2);

@@ -1,14 +1,14 @@
+import { createMemoryFs } from '@file-services/memory';
 import { expect } from 'chai';
 import type { PackageJson } from 'type-fest';
-import { createMemoryFs } from '@file-services/memory';
 import {
-  resolveDirectoryContext,
-  INpmPackage,
   childPackagesFromContext,
-  SinglePackageContext,
   PACKAGE_JSON,
-  MultiPackageContext,
-} from '../src';
+  resolveDirectoryContext,
+  type INpmPackage,
+  type MultiPackageContext,
+  type SinglePackageContext,
+} from '../src/index.js';
 
 describe('resolveDirectoryContext', () => {
   const packageJson = (packageJson: PackageJson) => JSON.stringify(packageJson, null, 2);

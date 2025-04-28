@@ -1,5 +1,5 @@
 import type { PackageJson } from 'type-fest';
-import { flattenTree, isString, concatIterables, isPlainObject } from './language-helpers';
+import { flattenTree, isString, concatIterables, isPlainObject } from './language-helpers.js';
 
 export const PACKAGE_JSON = 'package.json';
 

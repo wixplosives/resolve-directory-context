@@ -1,11 +1,16 @@
-import fs from 'fs';
-import path from 'path';
 import { expect } from 'chai';
-import { resolveDirectoryContext, INpmPackage, SinglePackageContext, MultiPackageContext } from '../src';
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  resolveDirectoryContext,
+  type INpmPackage,
+  type MultiPackageContext,
+  type SinglePackageContext,
+} from '../src/index.js';
 
 describe('resolveDirectoryContext using native Node.js host', () => {
   const host = { ...fs, ...path };
-  const fixtureDirectory = (fixtureName: string) => path.join(__dirname, 'fixtures', fixtureName);
+  const fixtureDirectory = (fixtureName: string) => path.join(import.meta.dirname, 'fixtures', fixtureName);
 
   it('supports a single package', () => {
     const fixturePath = fixtureDirectory('single-package');
