@@ -2,7 +2,11 @@
   "name": "@wixc3/resolve-directory-context",
   "description": "Helpers to get information about single/multi-package contexts",
   "version": "4.0.0",
-  "main": "./dist/index.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./packge.json": "./package.json"
+  },
   "scripts": {
     "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true })\"",
     "prebuild": "npm run clean",
@@ -16,25 +20,24 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "minimatch": "^9.0.5",
+    "minimatch": "^10.0.1",
     "type-fest": "^4.40.1"
   },
   "devDependencies": {
     "@file-services/memory": "^10.0.1",
     "@file-services/path": "^10.0.1",
     "@playwright/browser-chromium": "^1.52.0",
-    "@ts-tools/node": "^6.1.0",
-    "@types/chai": "^4.3.20",
+    "@ts-tools/esm": "^6.1.0",
+    "@types/chai": "^5.2.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "20",
-    "chai": "^4.4.1",
+    "chai": "^5.2.0",
     "esbuild": "^0.25.3",
     "mocha": "^11.1.0",
     "mocha-web": "^2.1.0",
     "typescript": "~5.8.3"
   },
   "files": [
-    "bin",
     "dist",
     "src"
   ],
@@ -53,5 +56,9 @@
   },
   "author": "Wix.com",
   "license": "MIT",
-  "repository": "git@github.com:wixplosives/resolve-directory-context.git"
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wixplosives/resolve-directory-context.git"
+  },
+  "sideEffects": false
 }
