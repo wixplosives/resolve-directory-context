@@ -15,7 +15,6 @@
     "test": "npm run test:node && npm run test:browser",
     "test:node": "mocha \"./test/**/*.{spec,nodespec}.ts\"",
     "test:browser": "mocha-web \"./test/**/*.spec.ts\"",
-    "lint": "eslint . -f codeframe",
     "prepack": "npm run build",
     "typecheck": "tsc --noEmit"
   },
