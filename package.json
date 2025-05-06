@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "minimatch": "^10.0.1",
-    "type-fest": "^4.40.1"
+    "type-fest": "^4.41.0"
   },
   "devDependencies": {
     "@file-services/memory": "^10.0.1",
