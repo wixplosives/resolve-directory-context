@@ -30,7 +30,7 @@
     "@types/chai": "^5.2.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "20",
-    "chai": "^5.2.0",
+    "chai": "^5.2.1",
     "esbuild": "^0.25.6",
     "mocha": "^11.7.1",
     "mocha-web": "^2.3.0",
