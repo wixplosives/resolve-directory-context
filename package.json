@@ -33,7 +33,7 @@
     "chai": "^5.3.1",
     "esbuild": "^0.25.9",
     "mocha": "^11.7.1",
-    "mocha-web": "^2.3.0",
+    "mocha-web": "^2.4.0",
     "typescript": "~5.9.2"
   },
   "files": [
