@@ -57,7 +57,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/wixplosives/resolve-directory-context.git"
+    "url": "git+ssh://git@github.com/dazl-dev/resolve-directory-context.git"
   },
   "sideEffects": false
 }
